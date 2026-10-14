@@ -1,0 +1,25 @@
+{
+  "detector": "baseline",
+  "rule": "flag if average seconds per question < min_avg_seconds OR focus_loss_events > max_focus_loss",
+  "target_fpr_per_rule": 0.01,
+  "thresholds": {
+    "min_avg_seconds": 28.9787,
+    "max_focus_loss": 5
+  },
+  "honest_reference_sittings_flagged": {
+    "low_average_time": 22,
+    "high_focus_loss": 11,
+    "either_rule": 33
+  },
+  "data": {
+    "generator_seed": 42,
+    "split_seed": 2024,
+    "n_sittings": 5000,
+    "n_questions": 40,
+    "cheat_rate": 0.15,
+    "n_reference_honest": 2125,
+    "n_test": 2501,
+    "n_test_honest": 2125,
+    "n_test_cheat": 376
+  }
+}
