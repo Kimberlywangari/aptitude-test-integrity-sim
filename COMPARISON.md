@@ -258,9 +258,9 @@ code checks that these two variants reproduce those detectors exactly
   A spread feature is the obvious next step and is not built.
 - **One seed, one run.** I did not repeat the experiment over several generator seeds
   and have no confidence intervals, so I cannot say how stable the 55.1% to 79.0% gap is.
-- **K and the question stats are fitted on the same reference sittings**, so the
-  reference false-alarm figures in Table 5 are slightly optimistic. The test-set
-  false-positive counts are the clean numbers.
+- **Every threshold and the per-question stats are fitted on the same reference
+  sittings**, so the reference false-alarm figures in Table 5 are in-sample. The test-set
+  false-positive counts are the out-of-sample figures.
 - **The reference is assumed clean.** I used the ground-truth labels to pick the honest
   reference sittings. A real reference would be unlabelled and might contain cheats,
   which would pull the per-question baselines. That is not simulated.
@@ -287,7 +287,12 @@ tables they feed:
 
 | Script | Writes | Used for |
 | --- | --- | --- |
-| `eval.run_baseline` | `results/baseline_metrics.csv`, `results/baseline_thresholds.json` | Baseline rows, Table 5 |
-| `eval.run_improved` | `results/improved_metrics.csv`, `results/improved_thresholds.json`, `results/before_after.csv` | Tables 1 to 5 |
+| `eval.run_baseline` | `results/baseline_metrics.csv`, `results/baseline_thresholds.json` | Table 5 (baseline thresholds); `baseline_metrics.csv` is what `eval.run_improved` checks its baseline counts against |
+| `eval.run_improved` | `results/improved_metrics.csv`, `results/improved_thresholds.json`, `results/before_after.csv` | Tables 1 to 4 (from `before_after.csv`), Table 5 and the lowest-z section (from `improved_thresholds.json`) |
 | `eval.run_ablation` | `results/ablation_metrics.csv`, `results/z_threshold_sensitivity.csv` | Tables 6 to 8 |
 | `eval.make_tables` | `results/comparison_tables.md` | The tables in this document |
+
+I checked this from a fresh clone with a new virtual environment and the pinned
+requirements: all 51 tests passed, and every file in `results/` plus
+`data/sample_sittings.csv` came out byte-identical to the committed ones. The sample
+test reads the committed `data/sample_sittings.csv`, so it needs that file to be present.

@@ -140,6 +140,11 @@ python -m eval.make_tables
   need the full CSV.
 - Run the baseline before the improved script: it checks its recomputed baseline counts
   against `results/baseline_metrics.csv`.
+- The sample test (`tests/test_split.py`) reads the committed `data/sample_sittings.csv`,
+  so that file must be present when running the tests.
+- Checked from a fresh clone with a new virtual environment and the pinned requirements:
+  all 51 tests passed, and every file in `results/` plus `data/sample_sittings.csv` came
+  out byte-identical to the committed ones.
 
 ## Repo layout
 
@@ -168,8 +173,9 @@ python -m eval.make_tables
 - **One seed, one run.** No repeats across seeds and no confidence intervals.
 - **The reference is assumed to be clean**, with honest sittings picked using the labels.
   A real reference would be unlabelled and possibly contaminated. Not simulated.
-- **K and the per-question stats are fitted on the same reference sittings**, so the
-  reference false-alarm figures are slightly optimistic. The test-set counts are clean.
+- **Every threshold and the per-question stats are fitted on the same reference
+  sittings**, so the reference false-alarm figures are in-sample. The test-set counts are
+  the out-of-sample figures.
 - **Not built:** z-scores on a log scale (the obvious fix for the bounded left tail), a
   timing-spread feature for uniform/robotic timing, a matched-false-positive comparison,
   any answer-content signals (such as answer patterns or similarity between candidates),
