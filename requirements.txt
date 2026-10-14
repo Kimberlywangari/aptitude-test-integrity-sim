@@ -1,0 +1,4 @@
+# Exact versions this project was developed and run with (Python 3.14.7)
+numpy==2.5.3
+pandas==3.0.5
+pytest==9.1.1

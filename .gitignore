@@ -1,0 +1,16 @@
+# Generated data: the full 5,000-row file regenerates from the seed
+data/sittings_full.csv
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
