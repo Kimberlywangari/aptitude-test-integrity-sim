@@ -1,0 +1,6 @@
+detector,group,n_sittings,n_honest,n_cheat,tp,fp,fn,tn,precision,recall,fpr,f1
+improved,overall,2501,2125,376,297,27,79,2098,0.9167,0.7899,0.0127,0.8486
+improved,too_fast,2238,2125,113,103,27,10,2098,0.7923,0.9115,0.0127,0.8477
+improved,idle_burst,2238,2125,113,113,27,0,2098,0.8071,1.0000,0.0127,0.8933
+improved,focus_loss,2200,2125,75,57,27,18,2098,0.6786,0.7600,0.0127,0.7170
+improved,uniform_timing,2200,2125,75,24,27,51,2098,0.4706,0.3200,0.0127,0.3810
